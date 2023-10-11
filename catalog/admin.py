@@ -41,17 +41,10 @@ class BooksInstanceInline(admin.TabularInline):
     model = BookInstance
 
 
+@admin.register(Book)
 class BookAdmin(admin.ModelAdmin):
-    """Administration object for Book models.
-    Defines:
-     - fields to be displayed in list view (list_display)
-     - adds inline addition of book instances in book view (inlines)
-    """
     list_display = ('title', 'author', 'display_genre')
     inlines = [BooksInstanceInline]
-
-
-admin.site.register(Book, BookAdmin)
 
 
 @admin.register(BookInstance)
