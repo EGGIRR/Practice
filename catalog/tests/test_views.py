@@ -301,12 +301,10 @@ class RenewBookInstancesViewTest(TestCase):
 
 
 class AuthorCreateViewTest(TestCase):
-    """Test case for the AuthorCreate view (Created as Challenge)."""
-
     def setUp(self):
         # Create a user
-        test_user1 = User.objects.create_user(username='testuser1', password='1X<ISRUkw+tuK')
-        test_user2 = User.objects.create_user(username='testuser2', password='2HJ1vRV0Z&3iD')
+        test_user1 = User.objects.create_user(username='testuser1', password='231')
+        test_user2 = User.objects.create_user(username='testuser2', password='123')
 
         test_user1.save()
         test_user2.save()
@@ -316,7 +314,7 @@ class AuthorCreateViewTest(TestCase):
         test_user2.save()
 
         # Create a book
-        test_author = Author.objects.create(first_name='John', last_name='Smith')
+        test_author = Author.objects.create(first_name='Kirill', last_name='Jidov')
 
     def test_redirect_if_not_logged_in(self):
         response = self.client.get(reverse('author-create'))
